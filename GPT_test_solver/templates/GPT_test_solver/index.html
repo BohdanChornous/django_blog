@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block css_file %}
+    <link rel="stylesheet" href="{%  static "GPT_test_solver/main_test.css" %}"/>
+{% endblock %}
+
+
+{% block title %}
+    GPTest-Solver
+{% endblock %}
+
+{% block content %}
+    <section id="summary">
+        <h1>GPTest-Solver</h1>
+        <h2>Try to solve your test</h2>
+        <form action="/test_solver" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {% for form in comment_form %}
+                <div class="form-control {% if form.errors %}invalid{% endif %}">
+                    {{ form.label_tag }}
+                    {{ form }}
+                    {{ form.errors }}
+                </div>
+            {% endfor %}
+            <button>Upload</button>
+        </form>
+    </section>
+
+    <section id="answer">
+        {% if ams_fild %}
+            <div class="image_wrapper"><img src="{{ image.url }}" alt="Uploaded image" /></div>
+            <h2>Test name: {{ test_name }}</h2>
+            <p>{{ test_answer }}</p>
+        {% else %}
+            <p>No answer at this moment.</p>
+        {% endif %}
+    </section>
+
+{% endblock %}

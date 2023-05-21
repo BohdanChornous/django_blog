@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+
+{% block title %}
+    My Blog
+{% endblock %}
+
+{% block css_file %}
+    <link rel="stylesheet" href="{%  static "blog/post.css" %}">
+    <link rel="stylesheet" href="{% static "blog/index.css" %}" />
+{% endblock %}
+
+{% block content %}
+
+    <section id="welcome">
+        <header>
+            <img src="{% static "blog/image/me2.jpg" %}" alt="Bohdan - The Author of This Blog" />
+            <h2>BOHDAN'S BLOG</h2>
+        </header>
+        <p>Hi, im Bohdan and here you can my passion my hobbies.</p>
+    </section>
+
+    <section id="latest-posts">
+        <h2>My Latest Thoughts</h2>
+
+        <ul>
+            {% for post in posts %}
+                {% include "blog/includes/post.html" %}
+            {% endfor %}
+        </ul>
+    </section>
+
+    <section id="about">
+        <h2>What I do</h2>
+        <p>
+            This is my first project like a python Developer, here you can see a little blog, about what I love.
+        </p>
+        <p>
+            I'm currently pursuing my studies at the Warsaw University of Technology. Alongside my studies,
+            I am fortunate to work as an engineer at a prominent company called Willson and Brown. As an engineer,
+            my passion lies in programming and utilizing software like SolidWorks to create dynamic 3D models.
+            I find great satisfaction in the process of designing and bringing ideas to life through computer-aided design.
+            I'm excited to be here and share my knowledge and experiences with all of you!"
+        </p>
+    </section>
+{% endblock %}
