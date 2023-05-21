@@ -8,7 +8,7 @@ from .image_utils import imread
 # Create your views here.
 
 
-openai.api_key = r"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"
+openai.api_key = r"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"
 
 
 class TestSolvView(View):
