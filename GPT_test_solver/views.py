@@ -8,7 +8,7 @@ from .image_utils import imread
 # Create your views here.
 
 
-openai.api_key = "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"
+openai.api_key = "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"
 
 
 class TestSolvView(View):
@@ -27,8 +27,8 @@ class TestSolvView(View):
         return response['choices'][0]['text']
 
     def text_from_image(self, image_path):
-        pytesseract.pytesseract.tesseract_cmd = r'/usr/bin/tesseract'
-        # r"C:\Program Files\Tesseract-OCR/tesseract.exe"
+        pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR/tesseract.exe"
+        # r'/usr/bin/tesseract'
 
         lang = 'eng'  # Replace with the appropriate language code
         img = imread(image_path)
