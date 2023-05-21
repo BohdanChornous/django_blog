@@ -27,7 +27,7 @@ class TestSolvView(View):
         return response['choices'][0]['text']
 
     def text_from_image(self, image_path):
-        pytesseract.pytesseract.tesseract_cmd = "/usr/share/tesseract-ocr/4.00/tessdata"
+        pytesseract.pytesseract.tesseract_cmd = r'/usr/bin/tesseract'
         # r"C:\Program Files\Tesseract-OCR/tesseract.exe"
 
         lang = 'eng'  # Replace with the appropriate language code
