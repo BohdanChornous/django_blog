@@ -8,7 +8,7 @@ from .image_utils import imread
 # Create your views here.
 
 
-openai.api_key = "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"
+openai.api_key = r"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"
 
 
 class TestSolvView(View):
@@ -46,7 +46,7 @@ class TestSolvView(View):
             "ams_fild": False,
             **kwargs
         }
-        return render(request, "GPT_test_solver/index.html", context=context)
+        return render(request, "GPT_test_solver/indexGPT.html", context=context)
 
     def post(self, request):
 
@@ -57,6 +57,8 @@ class TestSolvView(View):
             image = comment_form.instance.image
             img_text = self.text_from_image(image.path)
             answer = self.chat_answer(img_text)
+            if answer is None:
+                answer = "Empty message"
             context = {
                 "test_name": image_name,
                 "test_answer": answer,
